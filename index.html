@@ -31,48 +31,34 @@
     </div>
 
     <script>
-      const projects = [
-        {
-          name: "To-Do List",
-          description: "Aplikasi untuk mengelola daftar tugas harian.",
-          image: "todo_list/todo-list.png",
-          demoLink: "todo_list/index.html", // Link demo
-          sourceCode: "https://github.com/hasbialwikusmana/Mini-Projects/tree/main/todo_list", // Ganti dengan link source code yang sesuai
-        },
-        // {
-        //   name: "Calculator",
-        //   description: "Kalkulator sederhana untuk melakukan operasi matematika dasar.",
-        //   image: "calculator/screenshot.jpg",
-        //   demoLink: "calculator/index.html", // Link demo
-        //   sourceCode: "https://github.com/username/calculator", // Ganti dengan link source code yang sesuai
-        // },
-        // {
-        //   name: "Expense Tracker",
-        //   description: "Aplikasi untuk melacak pengeluaran dan pemasukan.",
-        //   image: "expense_tracker/screenshot.jpg",
-        //   demoLink: "expense_tracker/index.html", // Link demo
-        //   sourceCode: "https://github.com/username/expense_tracker", // Ganti dengan link source code yang sesuai
-        // },
-      ];
+      // Mengambil data dari file JSON menggunakan fetch
+      fetch("projects.json")
+        .then((response) => response.json())
+        .then((projects) => {
+          const projectContainer = document.getElementById("project-container");
 
-      const projectContainer = document.getElementById("project-container");
-
-      projects.forEach((project) => {
-        const card = document.createElement("div");
-        card.className = "col-md-4"; // Mengatur kolom untuk Bootstrap
-        card.innerHTML = `
-                <div class="card">
-                    <img src="${project.image}" alt="${project.name}" class="card-img-top" />
-                    <div class="card-body">
-                        <h5 class="card-title">${project.name}</h5>
-                        <p class="card-text">${project.description}</p>
-                        <a href="${project.demoLink}" class="btn btn-primary" target="_blank">Lihat Demo</a>
-                        <a href="${project.sourceCode}" class="btn btn-secondary" target="_blank">Source Code</a>
-                    </div>
+          projects.forEach((project) => {
+            const card = document.createElement("div");
+            card.className = "col-md-4"; // Mengatur kolom untuk Bootstrap
+            card.innerHTML = `
+              <div class="card">
+                <img src="${project.image}" alt="${project.name}" class="card-img-top" />
+                <div class="card-body">
+                  <h5 class="card-title">${project.name}</h5>
+                  <p class="card-text">${project.description}</p>
+                  <a href="${project.demoLink}" class="btn btn-primary" target="_blank">
+                    Lihat Demo
+                  </a>
+                  <a href="${project.sourceCode}" class="btn btn-secondary" target="_blank">
+                    Source Code
+                  </a>
                 </div>
+              </div>
             `;
-        projectContainer.appendChild(card);
-      });
+            projectContainer.appendChild(card);
+          });
+        })
+        .catch((error) => console.error("Error:", error));
     </script>
 
     <!-- Bootstrap JS and dependencies -->

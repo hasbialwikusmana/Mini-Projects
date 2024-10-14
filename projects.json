@@ -1,0 +1,16 @@
+[
+  {
+    "name": "To-Do List",
+    "description": "Aplikasi untuk mengelola daftar tugas harian.",
+    "image": "todo_list/todo-list.png",
+    "demoLink": "todo_list/index.html",
+    "sourceCode": "https://github.com/hasbialwikusmana/Mini-Projects/tree/main/todo_list"
+  },
+  {
+    "name": "Calculator",
+    "description": "Kalkulator sederhana untuk melakukan operasi matematika dasar.",
+    "image": "calculator/Calculator.png",
+    "demoLink": "calculator/index.html",
+    "sourceCode": "https://github.com/hasbialwikusmana/Mini-Projects/tree/main/calculator"
+  }
+]
