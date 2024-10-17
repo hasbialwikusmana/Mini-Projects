@@ -4,64 +4,176 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini Projects</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <style>
       body {
-        background-color: #f4f4f4;
+        background-color: #f8f9fa;
         padding: 20px;
+        font-family: "Arial", sans-serif;
       }
 
       h1 {
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         color: #333;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        position: relative;
+      }
+
+      h1::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: #007bff;
+        margin: 15px auto 0;
       }
 
       .card {
-        margin: 15px;
+        margin-bottom: 30px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+      }
+
+      .card img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .card-body {
+        padding: 20px;
+        background-color: #fff;
+        min-height: 150px; /* Atur tinggi minimum agar teks tidak memanjang */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card-title {
+        font-size: 1.5rem;
+        color: #333;
+        font-weight: 600;
+      }
+
+      .card-text {
+        font-size: 1rem;
+        color: #777;
+        margin-top: 10px;
+        flex-grow: 1;
+      }
+
+      .card-body .card-title,
+      .card-body .card-text {
+        margin-bottom: 15px;
+      }
+
+      /* Tambahkan margin otomatis untuk membuat semua card sama tingginya */
+      .card-body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media (max-width: 768px) {
+        .card img {
+          height: 150px;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .card-title {
+          font-size: 1.25rem;
+        }
+
+        .card-text {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .card img {
+          height: 120px;
+        }
+
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        .card-title {
+          font-size: 1.1rem;
+        }
+
+        .card-text {
+          font-size: 0.85rem;
+        }
+        .card-body {
+          min-height: 10px;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center">Mini Projects</h1>
+      <h1>Mini Projects</h1>
       <div class="row" id="project-container">
-        <!-- Kartu proyek akan ditambahkan di sini -->
+        <!-- Project cards will be dynamically added here -->
       </div>
     </div>
 
     <script>
-      // Mengambil data dari file JSON menggunakan fetch
       fetch("projects.json")
         .then((response) => response.json())
         .then((projects) => {
           const projectContainer = document.getElementById("project-container");
 
-          projects.forEach((project) => {
+          projects.forEach((project, index) => {
             const card = document.createElement("div");
-            card.className = "col-md-4"; // Mengatur kolom untuk Bootstrap
+            card.className = "col-lg-4 col-md-6 col-sm-12"; // Responsif berdasarkan ukuran layar
+            // Tentukan batas maksimum karakter
+            const maxDescriptionLength = 70; // Contoh batasan 100 karakter
+            let description = project.description;
+
+            // Jika deskripsi lebih panjang dari batas, potong teks dan tambahkan '...'
+            if (description.length > maxDescriptionLength) {
+              description = description.substring(0, maxDescriptionLength) + "...";
+            }
             card.innerHTML = `
               <div class="card">
                 <img src="${project.image}" alt="${project.name}" class="card-img-top" />
                 <div class="card-body">
                   <h5 class="card-title">${project.name}</h5>
-                  <p class="card-text">${project.description}</p>
-                  <a href="${project.demoLink}" class="btn btn-primary" target="_blank">
-                    Lihat Demo
-                  </a>
-                  <a href="${project.sourceCode}" class="btn btn-secondary" target="_blank">
-                    Source Code
-                  </a>
+                 <p class="card-text">${description}</p>
                 </div>
               </div>
             `;
+
+            // Navigasi ke halaman detail ketika gambar diklik
+            card.addEventListener("click", () => {
+              window.location.href = `detail.html?id=${index}`;
+            });
+
             projectContainer.appendChild(card);
           });
         })
         .catch((error) => console.error("Error:", error));
     </script>
 
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

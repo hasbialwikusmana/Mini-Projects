@@ -12,5 +12,12 @@
     "image": "calculator/Calculator.png",
     "demoLink": "calculator/index.html",
     "sourceCode": "https://github.com/hasbialwikusmana/Mini-Projects/tree/main/calculator"
+  },
+  {
+    "name": "Login Form",
+    "description": "Aplikasi login sederhana.",
+    "image": "login-form/form-login.png",
+    "demoLink": "login-form/index.html",
+    "sourceCode": "https://github.com/hasbialwikusmana/Mini-Projects/tree/main/login-form"
   }
 ]

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Detail</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: "Arial", sans-serif;
+        padding-top: 50px;
+      }
+
+      .container {
+        margin-top: 30px;
+      }
+
+      .project-card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-card img {
+        max-height: 400px;
+        width: 100%;
+        object-fit: contain;
+        margin-bottom: 20px;
+        border-radius: 8px;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #343a40;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: #495057;
+        line-height: 1.7;
+        margin-bottom: 30px;
+      }
+
+      /* Animasi hover untuk tombol */
+      .btn-primary,
+      .btn-secondary {
+        padding: 12px 24px;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        margin-right: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+        transform: translateY(-3px);
+      }
+
+      .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+      }
+
+      .btn-secondary:hover {
+        background-color: #5a6268;
+        transform: translateY(-3px);
+      }
+
+      .back-btn {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .back-btn button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        border: none;
+        background-color: #6c757d;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .back-btn button:hover {
+        background-color: #343a40;
+        transform: translateY(-5px);
+      }
+
+      /* Responsiveness */
+      @media (max-width: 768px) {
+        .project-card img {
+          max-height: 300px;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .project-card img {
+          max-height: 250px;
+        }
+
+        h2 {
+          font-size: 1.75rem;
+        }
+
+        p {
+          font-size: 0.95rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="project-card">
+            <div id="project-detail">
+              <!-- Detail proyek akan dimuat di sini -->
+            </div>
+          </div>
+
+          <!-- Tombol kembali -->
+          <div class="back-btn">
+            <button onclick="goBack()">← Kembali</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Ambil ID dari URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const projectId = urlParams.get("id");
+
+      // Ambil data proyek dari JSON
+      fetch("projects.json")
+        .then((response) => response.json())
+        .then((projects) => {
+          if (projectId >= 0 && projectId < projects.length) {
+            const project = projects[projectId];
+            const projectDetail = document.getElementById("project-detail");
+
+            projectDetail.innerHTML = `
+              <img src="${project.image}" alt="${project.name}" class="img-fluid" />
+              <h2>${project.name}</h2>
+              <p>${project.description}</p>
+              <a href="${project.demoLink}" class="btn btn-primary" target="_blank">Lihat Demo</a>
+              <a href="${project.sourceCode}" class="btn btn-secondary" target="_blank">Source Code</a>
+            `;
+          } else {
+            document.getElementById("project-detail").innerHTML = "<p>Project not found.</p>";
+          }
+        })
+        .catch((error) => console.error("Error:", error));
+
+      // Fungsi untuk kembali ke halaman sebelumnya
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
