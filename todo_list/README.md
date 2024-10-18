@@ -1,13 +1,16 @@
 # To-Do List Sederhana
 
-Ini adalah proyek mini **To-Do List** sederhana yang dibuat menggunakan **HTML, CSS, dan JavaScript**. Aplikasi ini memungkinkan pengguna untuk menambahkan, menandai sebagai selesai, dan menghapus tugas dari daftar. Desainnya minimalis dan responsif sehingga mudah digunakan.
+Ini adalah proyek mini **To-Do List** sederhana yang dibuat menggunakan **HTML, CSS, dan JavaScript**. Aplikasi ini memungkinkan pengguna untuk menambahkan, menandai sebagai selesai, memulihkan, dan menghapus tugas dari daftar. Desainnya minimalis dan responsif sehingga mudah digunakan.
 
 ## Fitur
 
-- Menambahkan tugas baru.
+- Menambahkan tugas baru dengan judul dan tanggal.
 - Menandai tugas sebagai selesai.
-- Menghapus tugas.
+- Memulihkan tugas yang sudah diselesaikan ke daftar belum selesai.
+- Menghapus tugas dari daftar.
+- Data tersimpan secara otomatis di **Local Storage**, sehingga tetap tersedia walau halaman di-refresh.
 - Antarmuka pengguna yang sederhana dan bersih.
+- Desain responsif yang mendukung berbagai ukuran layar.
 
 ## Instalasi
 
@@ -17,8 +20,8 @@ Ini adalah proyek mini **To-Do List** sederhana yang dibuat menggunakan **HTML, 
 ## Struktur Proyek
 
 - `index.html` – Berisi struktur HTML untuk daftar To-Do.
-- `style.css` – Berisi styling untuk antarmuka To-Do List.
-- `script.js` – Berisi kode JavaScript untuk menambah, menandai, dan menghapus tugas.
+- `css/style.css` – Berisi styling untuk antarmuka To-Do List.
+- `js/script.js` – Berisi kode JavaScript untuk menambah, menandai, memulihkan, dan menghapus tugas.
 
 ## Pratinjau
 
@@ -31,7 +34,13 @@ Berikut adalah pratinjau dari aplikasi:
 ## Penggunaan
 
 1. Buka halaman aplikasi.
-2. Masukkan tugas di kolom input.
-3. Klik tombol "Add Task" untuk menambah tugas ke daftar.
-4. Klik pada tugas untuk menandainya sebagai selesai (tugas akan dicoret).
-5. Klik tombol "Delete" untuk menghapus tugas.
+2. Masukkan tugas di kolom input, termasuk judul dan tanggal penyelesaian.
+3. Klik tombol "Submit" untuk menambah tugas ke daftar.
+4. Tugas yang belum selesai akan muncul di bagian "Yang harus dilakukan".
+5. Klik tombol centang untuk menandai tugas sebagai selesai (tugas akan pindah ke bagian "Yang sudah dilakukan").
+6. Klik tombol panah untuk memulihkan tugas dari daftar yang selesai kembali ke daftar yang belum selesai.
+7. Klik tombol tempat sampah untuk menghapus tugas secara permanen.
+
+## Penyimpanan Data
+
+Aplikasi ini mendukung **Local Storage** untuk menyimpan daftar tugas. Data tetap tersimpan meskipun halaman di-refresh atau browser ditutup, dan akan dimuat kembali ketika aplikasi dijalankan.
