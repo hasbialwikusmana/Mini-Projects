@@ -1,23 +1,30 @@
 [
   {
     "name": "To-Do List",
-    "description": "Aplikasi untuk mengelola daftar tugas harian.",
+    "description": "Aplikasi ini dirancang untuk membantu pengguna mengelola dan melacak tugas harian mereka dengan cara yang sederhana dan intuitif. Fitur-fitur seperti penambahan, penghapusan, serta penandaan tugas yang sudah selesai memungkinkan pengguna tetap produktif sepanjang hari. Dengan antarmuka yang bersih dan responsif, aplikasi ini cocok digunakan di berbagai perangkat, dari desktop hingga smartphone. Ini adalah alat yang sempurna bagi siapa saja yang ingin meningkatkan manajemen waktu dan mencapai target harian dengan lebih efektif.",
     "image": "todo_list/todo-list.png",
     "demoLink": "todo_list/index.html",
     "sourceCode": "https://github.com/hasbialwikusmana/Mini-Projects/tree/main/todo_list"
   },
   {
     "name": "Calculator",
-    "description": "Kalkulator sederhana untuk melakukan operasi matematika dasar.",
+    "description": "Kalkulator ini menyediakan solusi sederhana namun efektif untuk kebutuhan perhitungan sehari-hari. Aplikasi ini mendukung operasi matematika dasar seperti penjumlahan, pengurangan, perkalian, dan pembagian dengan tampilan yang minimalis dan mudah digunakan. Selain itu, desain yang bersih dan tata letak yang responsif memastikan bahwa aplikasi ini dapat diakses dengan nyaman di berbagai ukuran layar, menjadikannya alat yang ideal bagi siswa, profesional, atau siapa pun yang membutuhkan kalkulator cepat di genggaman mereka.",
     "image": "calculator/Calculator.png",
     "demoLink": "calculator/index.html",
     "sourceCode": "https://github.com/hasbialwikusmana/Mini-Projects/tree/main/calculator"
   },
   {
     "name": "Login Form",
-    "description": "Aplikasi login sederhana.",
+    "description": "Form login sederhana ini menyediakan fitur otentikasi dasar untuk aplikasi web, dengan fokus pada keamanan dan kemudahan penggunaan. Dirancang dengan prinsip-prinsip UX yang modern, form login ini memiliki validasi input dan penanganan kesalahan yang memadai untuk memastikan pengalaman pengguna yang lancar. Aplikasi ini cocok untuk proyek-proyek yang membutuhkan mekanisme login dasar namun tetap memiliki estetika yang menarik dan profesional, menjadikannya sebagai titik awal yang baik untuk mengembangkan sistem otentikasi yang lebih kompleks di masa depan.",
     "image": "login-form/form-login.png",
     "demoLink": "login-form/index.html",
     "sourceCode": "https://github.com/hasbialwikusmana/Mini-Projects/tree/main/login-form"
+  },
+  {
+    "name": "Github Profile",
+    "description": "Aplikasi ini memungkinkan pengguna mencari dan menampilkan profil pengguna GitHub dengan mudah. Dengan hanya memasukkan username GitHub, pengguna dapat melihat informasi lengkap seperti foto profil, jumlah repositori, jumlah followers, dan biografi singkat dari pemilik akun. Selain itu, aplikasi ini juga menyajikan tautan langsung ke halaman GitHub pengguna yang bersangkutan, menjadikannya alat yang bermanfaat bagi para developer yang ingin cepat mengakses informasi terkait komunitas dan proyek-proyek open-source di GitHub.",
+    "image": "github-profile/github-profile.png",
+    "demoLink": "github-profile/index.html",
+    "sourceCode": "https://github.com/hasialwikusmana/Mini-Projects/tree/main/github-profile"
   }
 ]
