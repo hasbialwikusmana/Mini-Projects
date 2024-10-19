@@ -6,13 +6,20 @@ Mini projects ini merupakan kumpulan aplikasi web interaktif yang dibuat menggun
 
 ## Daftar Proyek
 
-1. **Kalkulator Sederhana**
+1. **To-Do List**
 
    - Sebuah kalkulator interaktif yang memungkinkan pengguna melakukan operasi matematika dasar.
 
-2. **To-Do List**
+2. **Calculator**
 
    - Aplikasi yang membantu pengguna mengatur dan melacak tugas sehari-hari mereka.
+
+3. **Login Form**
+
+   - Sebuah form login sederhana yang dapat digunakan sebagai contoh bagaimana cara membuat form login yang aman dan mudah digunakan.
+
+4. **Github Profile**
+   - Aplikasi yang memungkinkan pengguna mencari dan menampilkan profil pengguna GitHub dengan mudah.
 
 ## Tujuan
 
